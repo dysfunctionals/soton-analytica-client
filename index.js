@@ -38,6 +38,15 @@ function register() {
         pingTimer = setInterval(pingServer, heartTime);
         /* Start game */
         isInGame = true;
+        /* Enable buttons */
+        $(".paddle").prop("disabled", false);
+        $(".paddle").removeClass("not-enabled btn-outline-secondary");
+        /* Set buttons colour */
+        if (data.team === "zucc") {
+            $(".paddle").addClass("paddle-zucc");
+        } else if (data.team === "user") {
+            $(".paddle").addClass("paddle-user");
+        }
     }).fail(function() {
         $("#team-info").hide();
         lostConnection("Disconnected, please reload the page");

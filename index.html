@@ -19,6 +19,42 @@
                 height: 30vw;
                 font-size: 30vw;
             }
+            .paddle:focus {
+                box-shadow: none;
+            }
+            .not-enabled:hover {
+                cursor: not-allowed !important;
+                color: #6c757d;
+                background-color: transparent;
+            }
+            .paddle-zucc {
+                color: #4a66ad;
+                border-color: #4a66ad;
+                background-color: transparent;
+            }
+            .paddle-zucc:hover {
+                color: white;
+                background-color: #4a66ad;
+            }
+            .paddle-zucc:active {
+                transition: color .15ms;
+                background-color: #5e7ac1;
+                border-color: #5e7ac1;
+            }
+            .paddle-user {
+                color: green;
+                border-color: green;
+                background-color: transparent;
+            }
+            .paddle-user:hover {
+                color: white;
+                background-color: green;
+            }
+            .paddle-user:active {
+                transition: color .15ms;
+                background-color: #469135;
+                border-color: #469135;
+            }
             .paddle>i {
                 display: block;
                 width: 100%;
@@ -50,10 +86,10 @@
             </div>
             <div id="control" class="row">
                 <div class="col">
-                    <button class="rounded-circle btn btn-outline-secondary paddle" data-direction="-1"><i class="fa fa-arrow-circle-up"></i></button>
+                    <button class="rounded-circle btn btn-outline-secondary paddle not-enabled" data-direction="-1" disabled><i class="fa fa-arrow-circle-up"></i></button>
                 </div>
                 <div class="col">
-                    <button class="rounded-circle btn btn-outline-secondary paddle" data-direction="1"><i class="fa fa-arrow-circle-down"></i></button>
+                    <button class="rounded-circle btn btn-outline-secondary paddle not-enabled" data-direction="1" disabled><i class="fa fa-arrow-circle-down"></i></button>
                 </div>
             </div>
         </div>
