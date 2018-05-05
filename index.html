@@ -7,15 +7,26 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            #team-info {
+                display: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
-            <div><p id="team-info">This requires JavaScript!</p></div>
+            <div>
+                <p id="warning-info" class="alert alert-danger">This requires JavaScript!</p>
+                <p id="team-info" class="alert alert-primary"></p>
+            </div>
             <div id="control">
                 <button class="paddle" data-direction="-1" id="h">&lt;-</button>
                 <button class="paddle" data-direction="1">-&gt;</button>
             </div>
         </div>
+        <div class="container"><p class="alert alert-dark">This website does not use Cookies, read our <a href="#">Biscuits Policy</a>. However, some third parties may use Cookies.</p></div>
+        <footer class="container"></footer>
+        <script src="config.js"></script>
         <script src="index.js"></script>
     </body>
 </html>

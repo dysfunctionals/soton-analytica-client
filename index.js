@@ -1,43 +1,45 @@
 /**
- * Program config
- */
-var path = "http://example.com";
-
-/**
  * Game register
  */
 var team;
-var token;
-
-var direction = 0;
-
-register();
+var id;
 
 function register() {
     $("#team-info").text("Registering into a team...");
-    $.post(path + "/regiter", function(data) {
+    $("#team-info").show();
+    $.get(path + "/register", function(data) {
+        console.log(data);
         team = data.team;
-        token = data.token;
-        $("#team-info").text("You are in team " + team);
+        id = data.id;
+        $("#team-info").text("You are in team " + data.team);
     }).fail(function() {
-        $("#team-info").text("Disconnected");
+        $("#team-info").hide();
+        lostConnection();
     });
 }
 
 function lostConnection() {
-    console.log("lost connection");
+    console.log("disconnected");
+    $("#warning-info").text("Disconnected");
+    $("#warning-info").show();
 }
 
-function sendUpdate() {
-    $.post(path + "/update", {
-        token: token,
-        motion: direction
-    }).fail();
+function sendMotion(direction) {
+    $.post(path + "/input", {
+        id: id,
+        direction: direction
+    }).fail(function() {
+        lostConnection();
+    });
 }
+
+/* Hide JavaScript warning */
+$("#warning-info").hide();
+
+register();
 
 $(".paddle").click(function() {
-    console.log("h");
     direction = parseInt($(this).data("direction"));
     console.log(direction);
-    sendUpdate();
+    sendMotion(direction);
 })
