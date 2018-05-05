@@ -11,6 +11,35 @@
             #team-info {
                 display: none;
             }
+            .paddle {
+                display: block;
+                margin: 0 auto;
+                padding: 0;
+                width: 30vw;
+                height: 30vw;
+                font-size: 30vw;
+            }
+            .paddle>i {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #control div:first-child>.paddle {
+                margin: 0 0 0 auto;
+            }
+            #control div:last-child>.paddle {
+                margin: 0 auto 0 0;
+            }
+            footer {
+                margin-top: 15px;
+            }
+            @media (min-width: 1200px) {
+                .paddle {
+                    width: 400px;
+                    height: 400px;
+                    font-size: 400px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -19,13 +48,18 @@
                 <p id="warning-info" class="alert alert-danger">This requires JavaScript!</p>
                 <p id="team-info" class="alert alert-primary"></p>
             </div>
-            <div id="control">
-                <button class="paddle" data-direction="-1" id="h">&lt;-</button>
-                <button class="paddle" data-direction="1">-&gt;</button>
+            <div id="control" class="row">
+                <div class="col">
+                    <button class="rounded-circle btn btn-outline-secondary paddle" data-direction="-1"><i class="fa fa-arrow-circle-up"></i></button>
+                </div>
+                <div class="col">
+                    <button class="rounded-circle btn btn-outline-secondary paddle" data-direction="1"><i class="fa fa-arrow-circle-down"></i></button>
+                </div>
             </div>
         </div>
-        <div class="container"><p class="alert alert-dark">This website does not use Cookies, read our <a href="#">Biscuits Policy</a>. However, some third parties may use Cookies.</p></div>
-        <footer class="container"></footer>
+        <footer class="container">
+            <p class="alert alert-dark">This website does not use Cookies, read our <a href="#">Biscuits Policy</a>. However, some third parties may use Cookies.</p>
+        </footer>
         <script src="config.js"></script>
         <script src="index.js"></script>
     </body>
