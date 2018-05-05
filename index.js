@@ -54,9 +54,12 @@ function register() {
 }
 
 function sendMotion(direction) {
+    var vibrate = window.navigator.vibrate(100);
     $.post(path + "/input", {
         id: id,
         direction: direction
+    }, function() {
+        console.log(direction + " sent");
     }).fail(function() {
         lostConnection("Disconnected, reconnecting...");
     });
