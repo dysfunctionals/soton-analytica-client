@@ -54,7 +54,13 @@ function register() {
 }
 
 function sendMotion(direction) {
-    var vibrate = window.navigator.vibrate(100);
+    var audio = new Audio("http://soundbible.com/grab.php?id=1705&type=mp3");
+    audio.play();
+    try {
+        var vibrate = window.navigator.vibrate(100);
+    } catch (err) {
+        console.log("vibrate not supported");
+    }
     $.post(path + "/input", {
         id: id,
         direction: direction
