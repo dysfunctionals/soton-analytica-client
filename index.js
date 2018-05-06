@@ -78,3 +78,19 @@ $(".paddle").click(function() {
     console.log(direction);
     sendMotion(direction);
 })
+
+$(document).keydown(function(e) {
+    console.log(e.keyCode + " pressed");
+    switch(e.keyCode) {
+        case 38:
+            // move up
+            sendMotion(-1);
+            break;
+        case 40:
+            // move down
+            sendMotion(1);
+            break;
+        default:
+            break;
+    }
+});
