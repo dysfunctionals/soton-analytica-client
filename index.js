@@ -84,11 +84,30 @@ $(document).keydown(function(e) {
     switch(e.keyCode) {
         case 38:
             // move up
+            $(".paddle").first().addClass("paddle-" + team +"-active");
             sendMotion(-1);
             break;
         case 40:
             // move down
+            $(".paddle").last().addClass("paddle-" + team +"-active");
             sendMotion(1);
+            break;
+        default:
+            break;
+    }
+});
+
+$(document).keyup(function(e) {
+    switch(e.keyCode) {
+        case 38:
+            // move up
+            $(".paddle").first().removeClass("paddle-zucc-active");
+            $(".paddle").first().removeClass("paddle-user-active");
+            break;
+        case 40:
+            // move down
+            $(".paddle").last().removeClass("paddle-zucc-active");
+            $(".paddle").last().removeClass("paddle-user-active");
             break;
         default:
             break;
